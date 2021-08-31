@@ -1,0 +1,56 @@
+/* **************************** RESET ********************************** */
+
+* {
+    margin: 0;
+    padding : 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/* **************************** GLOBAL ********************************** */
+
+* {
+    font-weight: lighter;
+}
+
+a {
+    color: black;
+}
+
+    a:hover {
+        color: gray;
+    }
+
+/* **************************** GLOBAL ********************************** */
+
+#home-header #header-img {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/Restaurant.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+#home-header h1,
+#home-header h2 {
+    position: absolute;
+    top: 8%;
+    width: 100%;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#home-header h2 {
+
+    top: 91%;
+}
+
+
+
+
+
+/* **************************** FOOTER ********************************** */
+
+    

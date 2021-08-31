@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block body %}
+
+
+
+    
+    <header class="container-fluid bg-Light text-center p-5">
+        <h1>Restaurants</h1>
+    </header>
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div class="table">
+             <table class="table">
+                 <thead>
+                     <tr>
+                         <th>Id</th>
+                         <th>Name</th>
+                         <th>Address</th>
+                         <th>Zip</th>
+                         <th>City</th>
+                         <th>Email</th>
+                         <th>Description</th>
+                         <th>Img</th>
+                         <th>actions</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+
+                    {% for restaurant in restaurants %}
+                     <tr>
+                         <td>{{ restaurant.id }}</td>
+                         <td>{{ restaurant.name }}</td>
+                         <td>{{ restaurant.address }}</td>
+                         <td>{{ restaurant.zip }}</td>
+                         <td>{{ restaurant.city }}</td>
+                         <td>{{ restaurant.email }}</td>
+                         <td>{{ restaurant.description }}</td>
+                         <td>{{ restaurant.img }}</td>
+                         <td>
+                             <a href="{{ path('admin_restaurant_show', {'id': restaurant.id}) }}">show</a>
+                             <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">edit</a>
+                         </td>
+                     </tr>
+                    {% else %}
+                     <tr>
+                         <td colspan="10">no records found</td>
+                     </tr>
+                    {% endfor %}
+                 </tbody>
+             </table>
+
+
+              -->
+                
+
+<main class="container-fluid p-5">
+
+    <div class="row">
+        {% for restaurant in restaurants %}
+             {#{% if loop.index <= 6 %}#}
+
+                 <div class="col-4 p-3">
+                     <div class="card">
+                         <img src="{{ restaurant.img }}" class="card-img-top" alt="photo">
+                         <div class="card-body">
+                             <h5 class="card-title">{{ restaurant.name }}</h5>
+                             <p class="card-text">{{ restaurant.description|u.truncate(100, ) }}</p>
+                         </div>
+                         <ul class="list-group list-group-flush">
+                             <li class="list-group-item">Address : {{ restaurant.address }}</li>
+                             <li class="list-group-item">Email : {{ restaurant.email }}</li>
+                         </ul>
+                     
+                    
+                         <div class="card-body text-center">
+                              <a href="#" class="btn btn-outline-secondary">Voir plus</a>
+                        </div>
+                     </div>
+               </div>
+             {#{% endif %}#}           
+         {% endfor %}
+   </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="#" class="btn btn-secondary">Voir tout</a>
+       </div>
+   </div>
+ 
+</main>
+
+{% endblock %}

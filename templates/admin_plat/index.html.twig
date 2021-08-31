@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Plat{% endblock %}
+
+{% block body %}
+<header id="plat-header">
+    <div id="header-img"></div>
+    <h1>Plat : </h1> 
+</header>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Img</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat in plats %}
+            <tr>
+                <td>{{ plat.id }}</td>
+                <td>{{ plat.name }}</td>
+                <td>{{ plat.description }}</td>
+                <td>{{ plat.price|number_format(100, ',') }}</td>
+                <td>{{ plat.img }}</td>
+                <td>
+                    <a href="{{ path('admin_plat_show', {'id': plat.id}) }}">show</a>
+                    <a href="{{ path('admin_plat_edit', {'id': plat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+    <!-- <main class="container-fluid p-5">
+        <div class="row">
+            {% for plat in plats %}
+                <div class="col-4 p-3">
+
+                     <div class="card">
+                         <img src="{{ plat.img }}" class="card-img-top" alt="photo_plats">
+                             <div class="card-body">
+                                 <h5 class="card-title">{{ plat.name }}</h5>
+                                 <p class="card-text">{{ plat.description }}</p>
+                             </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">price : {{ plat.price|number_format(100, ',') }}</li>
+                    
+                                    </ul>
+                             <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                             </div>
+                     </div>
+                </div>
+            {% endfor %}
+       </div> -->
+    </main>
+    <a href="{{ path('admin_plat_new') }}">Create new</a>
+{% endblock %}
